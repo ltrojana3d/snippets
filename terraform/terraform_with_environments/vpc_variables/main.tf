@@ -17,8 +17,8 @@ resource "aws_eip" "nat" {
 
 resource "aws_subnet" "Public01" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.publicsubnet01_cidr}"
-  availability_zone = "us-west-2a"
+  cidr_block        = "${element(var.public_subnet_cidr, 0)}"
+  availability_zone = "${element(var.availability_zones, 0)}"
 
     tags = {
     Name = "PublicSubnet01"
@@ -27,8 +27,8 @@ resource "aws_subnet" "Public01" {
 
 resource "aws_subnet" "Public02" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.publicsubnet02_cidr}"
-  availability_zone = "us-west-2b"
+  cidr_block        = "${element(var.public_subnet_cidr, 1)}"
+  availability_zone = "${element(var.availability_zones, 1)}"
 
     tags = {
     Name = "PublicSubnet02"
@@ -37,8 +37,8 @@ resource "aws_subnet" "Public02" {
 
 resource "aws_subnet" "Public03" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.publicsubnet03_cidr}"
-  availability_zone = "us-west-2c"
+  cidr_block        = "${element(var.public_subnet_cidr, 2)}"
+  availability_zone = "${element(var.availability_zones, 2)}"
 
     tags = {
     Name = "PublicSubnet03"
@@ -47,8 +47,8 @@ resource "aws_subnet" "Public03" {
 
 resource "aws_subnet" "Public04" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.publicsubnet04_cidr}"
-  availability_zone = "us-west-2d"
+  cidr_block        = "${element(var.public_subnet_cidr, 3)}"
+  availability_zone = "${element(var.availability_zones, 3)}"
 
     tags = {
     Name = "PublicSubnet04"
@@ -57,8 +57,8 @@ resource "aws_subnet" "Public04" {
 
 resource "aws_subnet" "Private01" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.privatesubnet01_cidr}"
-  availability_zone = "us-west-2a"
+  cidr_block        = "${element(var.private_subnet_cidr, 0)}"
+  availability_zone = "${element(var.availability_zones, 0)}"
 
     tags = {
     Name = "PrivateSubnet01"
@@ -67,8 +67,8 @@ resource "aws_subnet" "Private01" {
 
 resource "aws_subnet" "Private02" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.privatesubnet02_cidr}"
-  availability_zone = "us-west-2b"
+  cidr_block        = "${element(var.private_subnet_cidr, 1)}"
+  availability_zone = "${element(var.availability_zones, 1)}"
 
     tags = {
     Name = "PrivateSubnet02"
@@ -77,8 +77,8 @@ resource "aws_subnet" "Private02" {
 
 resource "aws_subnet" "Private03" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.privatesubnet03_cidr}"
-  availability_zone = "us-west-2c"
+  cidr_block        = "${element(var.private_subnet_cidr, 2)}"
+  availability_zone = "${element(var.availability_zones, 2)}"
 
     tags = {
     Name = "PrivateSubnet03"
@@ -87,8 +87,8 @@ resource "aws_subnet" "Private03" {
 
 resource "aws_subnet" "Private04" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.privatesubnet04_cidr}"
-  availability_zone = "us-west-2d"
+  cidr_block        = "${element(var.private_subnet_cidr, 3)}"
+  availability_zone = "${element(var.availability_zones, 3)}"
 
     tags = {
     Name = "PrivateSubnet04"
@@ -97,8 +97,8 @@ resource "aws_subnet" "Private04" {
 
 resource "aws_subnet" "NAT01" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.natsubnet01_cidr}"
-  availability_zone = "us-west-2a"
+  cidr_block        = "${element(var.nat_subnet_cidr, 0)}"
+  availability_zone = "${element(var.availability_zones, 0)}"
 
     tags = {
     Name = "NATSubnet01"
@@ -107,8 +107,8 @@ resource "aws_subnet" "NAT01" {
 
 resource "aws_subnet" "NAT02" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.natsubnet02_cidr}"
-  availability_zone = "us-west-2b"
+  cidr_block        = "${element(var.nat_subnet_cidr, 1)}"
+  availability_zone = "${element(var.availability_zones, 1)}"
 
     tags = {
     Name = "NATSubnet02"
@@ -117,8 +117,8 @@ resource "aws_subnet" "NAT02" {
 
 resource "aws_subnet" "NAT03" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.natsubnet03_cidr}"
-  availability_zone = "us-west-2c"
+  cidr_block        = "${element(var.nat_subnet_cidr, 2)}"
+  availability_zone = "${element(var.availability_zones, 2)}"
 
     tags = {
     Name = "NATSubnet03"
@@ -127,8 +127,8 @@ resource "aws_subnet" "NAT03" {
 
 resource "aws_subnet" "NAT04" {
   vpc_id            = "${aws_vpc.joey.id}"
-  cidr_block        = "${var.natsubnet04_cidr}"
-  availability_zone = "us-west-2d"
+  cidr_block        = "${element(var.nat_subnet_cidr, 3)}"
+  availability_zone = "${element(var.availability_zones, 3)}"
 
     tags = {
     Name = "NATSubnet04"
